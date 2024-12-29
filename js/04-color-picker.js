@@ -59,5 +59,54 @@ function colorsTemplate(arr) {
   return arr.map(colorTemplate).join('');
 }
 
+//!===============================================================
 const markup = colorsTemplate(colorPalette);
 refs.itemList.innerHTML = markup;
+
+refs.btnReloadColor.addEventListener('click', () => {
+  createPaletteItems();
+  const markup = colorsTemplate(colorPalette);
+  refs.itemList.innerHTML = markup;
+});
+
+//!===============================================================
+function showModal() {
+  document.body.classList.add('show-modal');
+  window.addEventListener('keydown', onModalClose);
+}
+
+function closeModal() {
+  document.body.classList.remove('show-modal');
+  window.removeEventListener('keydown', onModalClose);
+}
+
+//!===============================================================
+/* refs.itemList.addEventListener('click', e => {
+  if (e.target === e.currentTarget) return;
+  console.log('hello');
+}); */
+
+refs.itemList.addEventListener('click', e => {
+  if (e.target.nodeName !== 'BUTTON') return;
+  const color = e.target.dataset.color;
+  refs.modalElement.style.backgroundColor = color;
+
+  showModal();
+});
+
+//!===============================================================
+refs.backdropElem.addEventListener('click', e => {
+  if (e.target === e.currentTarget) {
+    closeModal();
+  }
+});
+
+//!===============================================================
+window.addEventListener('keydown', onModalClose);
+
+function onModalClose(e) {
+  console.log(e.code);
+  if (e.code === 'Escape') {
+    closeModal();
+  }
+}
