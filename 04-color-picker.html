@@ -2,30 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color-picker</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./css/04-color-picker.css" />
     <link rel="stylesheet" href="./css/modal.css" />
   </head>
   <body>
-    <p><a href="./index.html">Go home</a></p>
-
     <div class="backdrop js-backdrop">
       <div class="modal"></div>
     </div>
 
     <div class="box">
-      <ul class="color-box js-color-box"></ul>
+      <ul class="colors-box js-colors-box"></ul>
       <input type="button" value="Reload Color" class="js-reload-color" />
     </div>
 
     <input
       type="button"
-      value="Main menu"
+      value="Главное меню"
       onclick="history.back()"
       class="fixed-btn"
     />
-
-    <script src="./js/04-color-picker.js"></script>
+    <script src="js/04-color-picker.js"></script>
   </body>
 </html>
